@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get '/apartments/:id/edit(.:format)', to: 'apartments#edit',  as: 'edit_apartment'
   get '/apartments/:id(.:format)', to:  'apartments#show',  as: 'apartment'
   
+  #creador
+  get '/creador', to: 'creador#programador', as: 'creador'
+  
+  
   resources :apartments 
   resources :buildings
   

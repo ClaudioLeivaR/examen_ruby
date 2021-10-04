@@ -1,13 +1,15 @@
+
+
 <p id="notice"><%= notice %></p>
 
-<h1>Buildings</h1>
+<h1>Edificios</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Direccion</th>
-      <th>Ciudad</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Direccion</th>
+      <th scope="col">Ciudad</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +20,9 @@
         <td><%= building.nombre %></td>
         <td><%= building.direccion %></td>
         <td><%= building.ciudad %></td>
-        <td><%= link_to 'Show', building %></td>
-        <td><%= link_to 'Edit', edit_building_path(building) %></td>
-        <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', building, class:"btn btn-dark" %></td>
+        <td><%= link_to 'Editar', edit_building_path(building), class:"btn btn-dark" %></td>
+        <td><%= link_to 'Eliminar', building, method: :delete, data: { confirm: '¿estas seguro de eliminar este edificio?' }, class:"btn btn-dark" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Building', new_building_path %>
+<%= link_to 'Crear nuevo edificio', new_building_path, class:"btn btn-dark" %>
