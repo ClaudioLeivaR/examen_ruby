@@ -3,5 +3,6 @@ class Apartment < ApplicationRecord
 
   validates(:numero, presence: true)
   validates(:building_id, presence: true)
+  validates(:building_id, uniqueness: true)
  
 end

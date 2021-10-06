@@ -3,7 +3,8 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    @apartments = Apartment.all
+    #@apartments = Apartment.all
+    @apartments = Apartment.includes(:building).order(id: :asc)
   end
 
   # GET /apartments/1 or /apartments/1.json
@@ -13,11 +14,12 @@ class ApartmentsController < ApplicationController
   # GET /apartments/new
   def new
     @apartment = Apartment.new
-    
+    consultar_buildings
   end
 
   # GET /apartments/1/edit
   def edit
+    consultar_buildings
   end
 
   # POST /apartments or /apartments.json
@@ -67,4 +69,9 @@ class ApartmentsController < ApplicationController
     def apartment_params
       params.require(:apartment).permit(:numero, :building_id)
     end
+
+    def consultar_buildings
+      @buildings = Building.select(:id, :nombre).order(nombre: :asc)
+    end
+
 end
