@@ -20,9 +20,9 @@
         <td><%= building.nombre %></td>
         <td><%= building.direccion %></td>
         <td><%= building.ciudad %></td>
-        <td><%= link_to 'Mostrar', building, class:"btn btn-dark" %></td>
-        <td><%= link_to 'Editar', edit_building_path(building), class:"btn btn-dark" %></td>
-        <td><%= link_to 'Eliminar', building, method: :delete, data: { confirm: '¿estas seguro de eliminar este edificio?' }, class:"btn btn-dark" %></td>
+        <td><%= link_to 'Mostrar', building, class:"btn btn-primary" %></td>
+        <td><%= link_to 'Editar', edit_building_path(building), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Eliminar', building, method: :delete, data: { confirm: '¿estas seguro de eliminar este edificio?' }, class:"btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'Crear nuevo edificio', new_building_path, class:"btn btn-dark" %>
+<%= link_to 'Crear nuevo edificio', new_building_path, class:"btn btn-primary" %>

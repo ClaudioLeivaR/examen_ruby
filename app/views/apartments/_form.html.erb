@@ -25,8 +25,19 @@
       <%= form.text_field :building_id %>
     </div>
 
+    <div>
+      <%# form.label :building_id, class: "form-label" %>
+        <%# if apartment.building %>
+          <%# form.select(:building_id, option_from_collection_for_select(building, :id, :nombre, apartment.building_id), {include_blank: "Selecciona un edificio"}, {class:'form-select'}) %>
+        <%# else %>
+          <%# form.select(:building_id, option_from_collection_for_select(building, :id, :nombre), {include_blank: "Selecciona un edificio"}, {class:'form-select'}) %>
+        <%# end %>
+    </div> 
+ 
+<br>
+
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit 'Actualizar departamento', class:"btn btn-primary" %>
     </div>
   </div>
 </div>    

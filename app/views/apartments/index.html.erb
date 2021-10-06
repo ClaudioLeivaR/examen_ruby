@@ -16,9 +16,9 @@
       <tr>
         <td><%= apartment.numero %></td>
         <td><%= apartment.building_id %></td>
-        <td><%= link_to 'mostrar', apartment, class:"btn btn-dark" %></td>
-        <td><%= link_to 'Editar', edit_apartment_path(apartment), class:"btn btn-dark" %></td>
-        <td><%= link_to 'Eliminar', apartment, method: :delete, data: { confirm: '¿Estas seguro de eliminar este departamento?' }, class:"btn btn-dark" %></td>
+        <td><%= link_to 'mostrar', apartment, class:"btn btn-primary" %></td>
+        <td><%= link_to 'Editar', edit_apartment_path(apartment), class:"btn btn-primary" %></td>
+        <td><%= link_to 'Eliminar', apartment, method: :delete, data: { confirm: '¿Estas seguro de eliminar este departamento?' }, class:"btn btn-primary" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Apartment', new_apartment_path, class:"btn btn-dark" %>
+<%= link_to 'New Apartment', new_apartment_path, class:"btn btn-primary" %>
