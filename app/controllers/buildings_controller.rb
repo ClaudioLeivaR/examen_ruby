@@ -8,6 +8,10 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/1 or /buildings/1.json
   def show
+    
+  @buildings = Building.includes(:apartments).order(numero: :asc)
+
+  
   end
 
   # GET /buildings/new

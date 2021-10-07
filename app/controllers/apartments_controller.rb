@@ -9,6 +9,7 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/1 or /apartments/1.json
   def show
+    @apartments = Apartment.includes(:building).order(id: :asc)
   end
 
   # GET /apartments/new
@@ -27,7 +28,7 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.new(apartment_params)
 
     respond_to do |format|
-      if @apartment.save
+      if @apartment.save.empty?
         format.html { redirect_to @apartment, notice: "Apartment was successfully created." }
         format.json { render :show, status: :created, location: @apartment }
       else
@@ -44,6 +45,7 @@ class ApartmentsController < ApplicationController
         format.html { redirect_to @apartment, notice: "Apartment was successfully updated." }
         format.json { render :show, status: :ok, location: @apartment }
       else
+        consultar_buildings
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @apartment.errors, status: :unprocessable_entity }
       end

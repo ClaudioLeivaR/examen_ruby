@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card" style="width: 18rem;">
+<div class="card center" style="width: 18rem;">
   <div class="card-body">
     
     
     <p>
-      <strong>Nombre:</strong>
-      <%= @building.nombre %>
+      <strong><h4><%= @building.nombre %></h4></strong>
+      
     </p>
 
     <p>
@@ -19,10 +19,39 @@
       <%= @building.ciudad %>
     </p>
 
-    <%= link_to edit_building_path(@building), class:"btn btn-primary" do %> 
-    Editar
-    <% end %>
-    |
-    <%= link_to 'Volver', buildings_path, class:"btn btn-primary" %>
+    
+    
+   
   </div>
 </div>
+
+
+
+  <%# @building.apartment.each do |apartments| %>
+
+    <table class="table table-striped">
+  <thead>
+    <tr>
+
+      <th scope="col">Id</th>
+      <th scope="col">Numero departamento</th>
+      
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @building.apartment.each do |apartments| %>
+      <tr>
+
+        <td><%= apartments.id %></td>
+        <td><%= apartments.numero %></td>
+       
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ <%= link_to 'Volver', buildings_path, class:"btn btn-primary" %>
+                   
+  <%# end %>

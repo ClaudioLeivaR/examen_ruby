@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+for i in (0..9)
+    i = Building.create([
+            {nombre: Faker::Games::Zelda.character,
+            direccion: Faker::Address.street_address,
+            ciudad: Faker::Address.city}
+        ])
+end
+for i in (1..50)
+    i= Apartment.create([
+        {numero: rand(100..999),
+        building_id: rand(1..10)}
+    ])
+end

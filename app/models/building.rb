@@ -1,5 +1,7 @@
 class Building < ApplicationRecord
 
+    has_many :apartment
+
     validates(:nombre, presence: true)
     #validates(:nombre, uniqueness: true)
     
