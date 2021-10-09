@@ -28,10 +28,12 @@ class ApartmentsController < ApplicationController
     @apartment = Apartment.new(apartment_params)
 
     respond_to do |format|
-      if @apartment.save.empty?
-        format.html { redirect_to @apartment, notice: "Apartment was successfully created." }
+      if @apartment.save
+      
+        format.html { redirect_to @apartment, notice: "El departamento se creó correctamente." }
         format.json { render :show, status: :created, location: @apartment }
       else
+        consultar_buildings
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @apartment.errors, status: :unprocessable_entity }
       end
@@ -42,7 +44,8 @@ class ApartmentsController < ApplicationController
   def update
     respond_to do |format|
       if @apartment.update(apartment_params)
-        format.html { redirect_to @apartment, notice: "Apartment was successfully updated." }
+        
+        format.html { redirect_to @apartment, notice: "El departamento se actualizó correctamente." }
         format.json { render :show, status: :ok, location: @apartment }
       else
         consultar_buildings
@@ -56,7 +59,7 @@ class ApartmentsController < ApplicationController
   def destroy
     @apartment.destroy
     respond_to do |format|
-      format.html { redirect_to apartments_url, notice: "Apartment was successfully destroyed." }
+      format.html { redirect_to apartments_url, notice: "El departamento fue eliminado con éxito." }
       format.json { head :no_content }
     end
   end

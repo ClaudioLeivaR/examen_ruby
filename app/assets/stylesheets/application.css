@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+div.scrollWrapper{
+
+height: 550px;
+width:auto;
+overflow:scroll;
+}

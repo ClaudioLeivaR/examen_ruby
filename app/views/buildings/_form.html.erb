@@ -1,39 +1,41 @@
 <%= form_with(model: building) do |form| %>
+<div class="row justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
+    <% if building.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
 
-  <% if building.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+        <ul>
+          <% building.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% building.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label :nombre %>
+      <%= form.text_field :nombre %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
-  </div>
+    <div class="field">
+      <%= form.label :direccion %>
+      <%= form.text_field :direccion %>
+    </div>
 
-  <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :direccion %>
-  </div>
+    <div class="field">
+      <%= form.label :ciudad %>
+      <%= form.text_field :ciudad %>
+    </div>
+  <br>
+    <div class="actions">
+      <%= form.submit  class:"btn btn-primary" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :ciudad %>
-    <%= form.text_field :ciudad %>
-  </div>
-<br>
-  <div class="actions">
-    <%= form.submit  class:"btn btn-primary" %>
-  </div>
-
-  </div>
-</div>  
+    </div>
+  </div>  
+</div>
+  
 <% end %>

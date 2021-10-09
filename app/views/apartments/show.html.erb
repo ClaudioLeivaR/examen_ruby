@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="row justify-content-center">
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <p>
@@ -8,7 +8,7 @@
     </p>
 
     <p>
-      <strong>Building:</strong>
+      <strong>Edificio:</strong>
       <%= @apartment.building_id %>
     </p>
 
@@ -16,11 +16,11 @@
 
 
 
-    <%= link_to 'Editar', edit_apartment_path(@apartment), class:"btn btn-primary" %> |
+    <%# link_to 'Editar', edit_apartment_path(@apartment), class:"btn btn-primary" %> 
     <%= link_to 'Volver', apartments_path, class:"btn btn-primary" %>
   </div>
 </div>
-
+</div>
 
 
             

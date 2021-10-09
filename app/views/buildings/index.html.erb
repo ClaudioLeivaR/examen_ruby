@@ -3,7 +3,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Edificios</h1>
-
+<div class="scrollWrapper">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -16,7 +16,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody height="500">
     <% @buildings.each do |building| %>
       <tr>
 
@@ -31,7 +31,11 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'Crear nuevo edificio', new_building_path, class:"btn btn-primary" %>
+<%= link_to new_building_path, class:"btn btn-primary" do %>
+<i class="bi bi-plus-square"></i>
+Crear nuevo edificio
+
+<% end %>

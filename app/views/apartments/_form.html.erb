@@ -1,44 +1,45 @@
 <%= form_with(model: apartment) do |form| %>
- 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
+<div class="row justify-content-center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
 
-    <% if apartment.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+      <% if apartment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
 
-        <ul>
-          <% apartment.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
+          <ul>
+            <% apartment.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :numero %>
+        <%= form.text_field :numero %>
       </div>
-    <% end %>
 
-    <div class="field">
-      <%= form.label :numero %>
-      <%= form.text_field :numero %>
+      <div class="field">
+        <%# form.label :building_id %>
+        <%# form.text_field :building_id %>
+      </div>
+
+      <div>
+        <%= form.label :building_id,"Edificio", class: "form-label" %>
+          <% if apartment.building %>
+            <%= form.select(:building_id, options_from_collection_for_select(buildings, :id, :nombre, apartment.building_id),  {class:'form-select'}) %>
+          <% else %>
+            <%= form.select(:building_id, options_from_collection_for_select(buildings, :id, :nombre),  {class:'form-select'}) %>
+          <% end %>
+      </div> 
+  
+  <br>
+
+      <div class="actions">
+        <%= form.submit  class:"btn btn-primary" %>
+      </div>
     </div>
-
-    <div class="field">
-      <%# form.label :building_id %>
-      <%# form.text_field :building_id %>
-    </div>
-
-    <div>
-      <%= form.label :building_id, class: "form-label" %>
-        <% if apartment.building %>
-          <%= form.select(:building_id, options_from_collection_for_select(buildings, :id, :nombre, apartment.building_id),  {class:'form-select'}) %>
-        <% else %>
-          <%= form.select(:building_id, options_from_collection_for_select(buildings, :id, :nombre),  {class:'form-select'}) %>
-        <% end %>
-    </div> 
- 
-<br>
-
-    <div class="actions">
-      <%= form.submit  class:"btn btn-primary" %>
-    </div>
-  </div>
-</div>    
+  </div>    
+</div>
 <% end %>

@@ -1,21 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Departamentos</h1>
-
+<div class="scrollWrapper">
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Numero</th>
-      <th>Building</th>
+      <th>Id Edificio</th>
+     
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody height="500">
     <% @apartments.each do |apartment| %>
       <tr>
         <td><%= apartment.numero %></td>
         <td><%= apartment.building_id %></td>
+        
         <td><%= link_to 'mostrar', apartment, class:"btn btn-primary" %></td>
         <td><%= link_to 'Editar', edit_apartment_path(apartment), class:"btn btn-primary" %></td>
         <td><%= link_to 'Eliminar', apartment, method: :delete, data: { confirm: '¿Estas seguro de eliminar este departamento?' }, class:"btn btn-primary" %></td>
@@ -23,7 +25,10 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
-<%= link_to 'Crear nuevo departamento', new_apartment_path, class:"btn btn-primary" %>
+<%= link_to  new_apartment_path, class:"btn btn-primary" do %>
+<i class="bi bi-plus-square"></i>
+Crear nuevo departamento
+<% end %>
