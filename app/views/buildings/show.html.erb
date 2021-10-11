@@ -28,7 +28,7 @@
 
 
   <%# @building.apartment.each do |apartments| %>
-
+<div class="scrollWrapper">
     <table class="table table-striped">
   <thead>
     <tr>
@@ -40,7 +40,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody height="400">
     <% @building.apartment.each do |apartments| %>
       <tr>
 
@@ -52,6 +52,8 @@
     <% end %>
   </tbody>
 </table>
+</div>
+<br>
  <%= link_to 'Volver', buildings_path, class:"btn btn-primary" %>
                    
   <%# end %>
